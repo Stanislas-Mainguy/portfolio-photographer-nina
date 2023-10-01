@@ -5,7 +5,7 @@ $(document).ready(function() {
         const $gallery = $('.gallery');
         
         // Configuration de la galerie
-        let galleryOptions = {
+        const galleryOptions = {
             columns: {
                 xs: 1,
                 sm: 2,
