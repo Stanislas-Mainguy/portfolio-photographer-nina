@@ -42,6 +42,7 @@ body {
 
 .social-link img {
 	width: 20px;
+	height: 20px;
 }
 
 #about {
@@ -72,6 +73,11 @@ body {
 .picture img {
 	width: 100%;
 
+}
+
+.picture .right img {
+	width: 100%;
+	height: 100%;
 }
 
 #about-me {
@@ -111,7 +117,7 @@ body {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
 	color: #fff;
-	background-color: #BEB45A;
+	background-color: #575729;
 	border-radius:0 ;
 }
 
@@ -276,7 +282,7 @@ input[type="submit"] {
 		margin-top: 0;
 		margin-bottom: 1em;
 	}
-	#about-me h6, #about-me p {
+	#about-me .important__text, #about-me p {
 		width: 100%;
 	}
 }
