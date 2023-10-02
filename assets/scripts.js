@@ -1,7 +1,6 @@
 $(document).ready(function() {
     try {
         const $gallery = $('.gallery');
-        
         const galleryOptions = {
             columns: {
                 xs: 1,
