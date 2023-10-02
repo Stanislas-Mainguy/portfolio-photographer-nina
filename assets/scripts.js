@@ -1,10 +1,10 @@
-// Attend que le document soit prêt
+// Attend que le document soit prêt //
 $(document).ready(function() {
     try {
-        // Sélectionne l'élément HTML avec la classe "gallery" et initialise la galerie
+        // Sélectionne l'élément HTML avec la classe "gallery" et initialise la galerie //
         const $gallery = $('.gallery');
         
-        // Configuration de la galerie
+        // Configuration de la galerie //
         const galleryOptions = {
             columns: {
                 xs: 1,
