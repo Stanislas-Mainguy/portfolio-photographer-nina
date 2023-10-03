@@ -14,7 +14,6 @@ $(document).ready(function() {
             showTags: true,
             tagsPosition: 'top'
         };
-        
         $gallery.mauGallery(galleryOptions);
     } catch (error) {
         console.error('Une erreur s\'est produite :', error);
