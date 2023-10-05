@@ -63,11 +63,6 @@ body {
 	height: 100%;
 }
 
-.camera-picture {
-	width: 100%;
-	height: 100%;
-}
-
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
