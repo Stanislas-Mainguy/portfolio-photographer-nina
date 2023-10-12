@@ -12,7 +12,7 @@ body {
 	background-color: white;
 	position: sticky;
 	top: 0;
-	z-index: 1000;
+	z-index: 750;
 	display: flex;
 	justify-content: space-between;
 	padding-inline: 100px;
@@ -53,16 +53,6 @@ body {
 	position: relative;
 }
 
-.nina-picture {
-	width: 100%;
-	height: 100%;
-}
-
-.slide-picture {
-	width: 100%;
-	height: 100%;
-}
-
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -78,11 +68,6 @@ body {
 	flex: 1;
 	margin: 0 20px;
 	z-index: 0;
-}
-
-.picture .right img {
-	width: 100%;
-	height: 100%;
 }
 
 #about-me {
@@ -411,4 +396,41 @@ input[type="submit"] {
 	.picture {
 		width: 80%;
 	}
+}
+
+.lightbox-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 800;
+	text-align: center;
+}
+
+.lightbox {
+	z-index: 801;
+	position: relative;
+	display: inline-block;
+	background-color: #fff;
+	margin: 20px auto;
+	max-width: 550px;
+	max-height: 833px;
+	overflow: auto;
+	color: #fff;
+	padding: 16px;
+	border-radius: 5px;
+	top: 20px;
+}
+
+.lightbox img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.no-scroll {
+	overflow: hidden;
 }

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     try {
         const $gallery = $('.gallery');
         const galleryOptions = {
@@ -18,4 +18,4 @@ $(document).ready(function() {
     } catch (error) {
         console.error('Une erreur s\'est produite :', error);
     }
-});
+}); */
