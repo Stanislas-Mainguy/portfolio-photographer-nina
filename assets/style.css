@@ -53,6 +53,17 @@ body {
 	position: relative;
 }
 
+.picture.left {
+	max-width: 560px;
+	max-height: 560px;
+}
+
+.picture.left img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -102,52 +113,54 @@ body {
 	padding-block: 2em;
 }
 
-.gallery .nav {
+.gallery-nav {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.gallery-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 16px;
+	padding: 8px 16px;
+	height: 40px;
+	width: fit-content;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: fit-content;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.picture-item {
+	width: 440px;
+	height: 440px;
+	padding: 8px;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-	color: #fff;
-	background-color: #575729;
-	border-radius: 0;
-}
-
-.nav-pills .nav-link {
-	color: #000
-}
-
-.item-column {
-	position: relative;
-	margin-bottom: 0 !important;
-	padding: 0;
-}
-
-.item-column::after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-
-}
-
-.gallery-item {
-	position: absolute;
+.gallery-picture {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	padding: .5em;
 }
 
-.mg-prev,
-.mg-next {
-	width: 30px;
-	height: 30px;
-	border-radius: 00%;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	font-size: 24px;
-}
+/* Partie de code pour la sélection de la nav gallery et couleur 
+	color: #fff;
+	background-color: #575729;
+	border-radius: 0;
+*/
 
 .quote {
 	font-family: 'Spectral';
@@ -191,7 +204,6 @@ body {
 	justify-content: space-between;
 	display: flex;
 	padding: 2em 0;
-
 }
 
 .service {
@@ -398,39 +410,52 @@ input[type="submit"] {
 	}
 }
 
-.lightbox-container {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: none;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 800;
-	text-align: center;
+
+/*
+@media (min-width: 375px) {
+	.gallery {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.picture-item {
+		width: calc(50% - 5px);
+		 2 colonnes 
+		width: 440px;
+		height: 440px;
+	}
 }
 
-.lightbox {
-	z-index: 801;
-	position: relative;
-	display: inline-block;
-	background-color: #fff;
-	margin: 20px auto;
-	max-width: 550px;
-	max-height: 833px;
-	overflow: auto;
-	color: #fff;
-	padding: 16px;
-	border-radius: 5px;
-	top: 20px;
+ Pour les écrans plus grands que 576px 
+@media (min-width: 576px) {
+	.gallery-item {
+		width: calc(33.33% - 10px);
+		 3 colonnes 
+		width: 270px;
+		height: 270px;
+	}
 }
 
-.lightbox img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+
+@media (min-width: 768px) {
+	.gallery-item {
+		width: 320px;
+		height: 320px;
+	}
 }
 
-.no-scroll {
-	overflow: hidden;
+
+@media (min-width: 992px) {
+	.gallery-item {
+		width: 380px;
+		height: 380px;
+	}
 }
+
+@media (min-width: 1200px) {
+	.gallery-item {
+		width: 440px;
+		height: 440px;
+	}
+} */
