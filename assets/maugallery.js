@@ -103,63 +103,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 const picture = document.createElement("picture");
                 picture.className = "picture-item";
 
-                const sourceLarge = document.createElement("source");
-                sourceLarge.srcset = item.filename.join(', ');
-                sourceLarge.media = "(min-width: 992px)";
-                sourceLarge.type = "image/webp";
+                let imageUrl = "";
+                const currentWidth = window.innerWidth;
 
-                const sourceMedium = document.createElement("source");
-                sourceMedium.srcset = item.filename.join(', ').replace("-large.webp", "-medium.webp");
-                sourceMedium.media = "(min-width: 576px)";
-                sourceMedium.type = "image/webp";
-
-                const sourceMini = document.createElement("source");
-                sourceMini.srcset = item.filename.join(', ').replace("-medium.webp", "-mini.webp");
-                sourceMini.media = "(min-width: 376px)";
-                sourceMini.type = "image/webp";
-
-                const source375 = document.createElement("source");
-                source375.srcset = item.filename.join(', ').replace("-mini.webp", "-375.webp");
-                source375.media = "(max-width: 375px)";
-                source375.type = "image/webp";
+                if (currentWidth >= 992) {
+                    imageUrl = item.filename[0];
+                } else if (currentWidth >= 576) {
+                    imageUrl = item.filename[1];
+                } else if (currentWidth >= 376) {
+                    imageUrl = item.filename[2];
+                } else {
+                    imageUrl = item.filename[3];
+                }
 
                 const img = document.createElement("img");
                 img.className = "gallery-picture";
                 img.dataset.galleryTag = item.tags[0];
-                img.src = item.filename.join(', ').replace("-large.webp", "-mini.webp");
+                img.src = imageUrl;
                 img.alt = item.description;
 
-                window.addEventListener("resize", function() {
-                    const img = document.querySelector(".gallery-picture");
-                    const currentWidth = window.innerWidth;
-
-                    if (currentWidth >= 992) {
-                        img.src = img.src.replace("-375.webp", "-large.webp");
-                        img.src = img.src.replace("-mini.webp", "-large.webp");
-                        img.src = img.src.replace("-medium.webp", "-large.webp");
-                    } else if (currentWidth >= 576) {
-                        img.src = img.src.replace("-375.webp", "-medium.webp");
-                        img.src = img.src.replace("-mini.webp", "-medium.webp");
-                        img.src = img.src.replace("-large.webp", "-medium.webp");
-                    } else if (currentWidth >= 376) {
-                        img.src = img.src.replace("-375.webp", "-mini.webp");
-                        img.src = img.src.replace("-large.webp", "-mini.webp");
-                        img.src = img.src.replace("-medium.webp", "-mini.webp");
-                    } else if (currentWidth <= 375) {
-                        img.src = img.src.replace("-large.webp", "-375.webp");
-                        img.src = img.src.replace("-mini.webp", "-375.webp");
-                        img.src = img.src.replace("-medium.webp", "-375.webp");
-                    }
-                });
-
-                img.alt = item.description;
-
-                picture.appendChild(sourceLarge);
-                picture.appendChild(sourceMedium);
-                picture.appendChild(sourceMini);
-                picture.appendChild(source375);
                 picture.appendChild(img);
-
                 gallery.appendChild(picture);
             }
         });
@@ -172,6 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             const tag = this.textContent.toLowerCase();
             displayImagesByTag(tag);
-        });        
+        });
+    });
+
+    window.addEventListener("resize", function () {
+        displayImagesByTag("Tous");
     });
 });
