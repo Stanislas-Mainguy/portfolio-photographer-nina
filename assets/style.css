@@ -140,6 +140,23 @@ body {
 	height: auto;
 	margin-right: auto;
 	margin-left: auto;
+	transform-origin: top left;
+}
+
+.gallery-open {
+	animation: openGallery 0.5s ease-in-out;
+	transform: scale(1);
+}
+
+@keyframes openGallery {
+	0% {
+		transform-origin: top left;
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 .picture-item {
