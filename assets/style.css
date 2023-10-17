@@ -142,22 +142,6 @@ body {
 	margin-left: auto;
 }
 
-.gallery-open {
-	animation: unfoldGallery 0.5s ease-in-out;
-}
-
-@keyframes unfoldGallery {
-	0% {
-		width: 0;
-		height: 0;
-	}
-
-	100% {
-		width: 100%;
-		height: 100%;
-	}
-}
-
 .picture-item {
 	width: 440px;
 	height: 440px;

@@ -22,7 +22,3 @@ buttons.forEach((button) => {
 });
 
 filterPictures("tous");
-
-gallery.addEventListener("animationend", function () {
-    gallery.classList.remove("gallery-open");
-});
