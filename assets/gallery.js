@@ -20,6 +20,10 @@ function filterPictures(tag) {
 buttons.forEach((button) => {
     button.addEventListener("click", function () {
         const tag = this.textContent.toLowerCase();
+        buttons.forEach((btn) => {
+            btn.classList.remove("selected-filter");
+        })
+        this.classList.add("selected-filter");
         filterPictures(tag);
     });
 });

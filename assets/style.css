@@ -97,6 +97,7 @@ body {
 	font-style: italic;
 	width: 60%;
 	margin-bottom: 8px;
+	display: block;
 }
 
 #about-me p {
@@ -131,6 +132,12 @@ body {
 	padding: 8px 16px;
 	height: 40px;
 	width: fit-content;
+}
+
+.selected-filter {
+	color: #fff;
+	background-color: #575729;
+	border-radius: 0;
 }
 
 .gallery {
@@ -173,12 +180,6 @@ body {
 	height: 100%;
 	object-fit: cover;
 }
-
-/* Partie de code pour la sélection de la nav gallery et couleur 
-	color: #fff;
-	background-color: #575729;
-	border-radius: 0;
-*/
 
 .quote {
 	font-family: 'Spectral';
