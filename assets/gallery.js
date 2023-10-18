@@ -92,3 +92,26 @@ selectorCloseModal.addEventListener("click", closeModal);
 
 
 /*showNewPicture.addEventListener("click", showNewPicture);*/
+
+function setPictureHeight() {
+    const screenWidth = window.innerWidth;
+    const pictures = document.querySelectorAll(".picture-item");
+    const maxScreenWidth = 576;
+    const aspectRatio = 1;
+
+    if (screenWidth <= maxScreenWidth) {
+        pictures.forEach(picture => {
+            picture.style.width = "100%";
+            picture.style.height = screenWidth * aspectRatio + "px";
+        });
+    } else {
+        // Rétablir les styles d'image par défaut //
+        pictures.forEach(picture => {
+            picture.style.width = "";
+            picture.style.height = "";
+        });
+    }
+}
+
+window.addEventListener("resize", setPictureHeight);
+setPictureHeight();
