@@ -1,4 +1,5 @@
-// Section pour le filtrage et comportement de la galerie //
+                    // Section pour le filtrage et comportement de la galerie //
+
 // Filtrage des photos pour la galerie //
 const pictures = document.querySelectorAll(".picture-item");
 const buttons = document.querySelectorAll(".gallery-button");
@@ -35,9 +36,34 @@ filterPictures("tous");
 gallery.addEventListener("animationend", function () {
     gallery.classList.remove("gallery-open");
 });
-// Fin de section pour le filtrage et comportement de la galerie //
 
-// Section pour la modal et son comportement //
+// Fonction pour gérer le responsive de la galerie //
+function setPictureHeight() {
+    const screenWidth = window.innerWidth;
+    const pictures = document.querySelectorAll(".picture-item");
+    const maxScreenWidth = 576;
+    const aspectRatio = 1;
+
+    if (screenWidth <= maxScreenWidth) {
+        pictures.forEach(picture => {
+            picture.style.width = "100%";
+            picture.style.height = screenWidth * aspectRatio + "px";
+        });
+    } else {
+        // Rétablir les styles d'image par défaut //
+        pictures.forEach(picture => {
+            picture.style.width = "";
+            picture.style.height = "";
+        });
+    }
+}
+
+window.addEventListener("resize", setPictureHeight);
+setPictureHeight();
+
+                    // Fin de section pour le filtrage et comportement de la galerie //
+
+                    // Section pour la modal et son comportement //
 const modal = document.querySelector("#modal-picture");
 const modalContent = document.querySelector(".modal-content");
 const modalPicture = document.querySelector(".modal-picture");
@@ -75,43 +101,5 @@ function closeModal() {
 
 selectorCloseModal.addEventListener("click", closeModal);
 
-/*function showNewPicture(imgUrl) {
-    const allPicture = document.querySelectorAll(".gallery-picture");
-    const rightArrow = document.querySelector(".right-arrow");
-    const leftArrow = document.querySelector(".left-arrow");
 
-    function showPreviousPicture() {
-        
-    }
-
-    function showNextPicture() {
-
-    }
-}*/
-
-
-
-/*showNewPicture.addEventListener("click", showNewPicture);*/
-
-function setPictureHeight() {
-    const screenWidth = window.innerWidth;
-    const pictures = document.querySelectorAll(".picture-item");
-    const maxScreenWidth = 576;
-    const aspectRatio = 1;
-
-    if (screenWidth <= maxScreenWidth) {
-        pictures.forEach(picture => {
-            picture.style.width = "100%";
-            picture.style.height = screenWidth * aspectRatio + "px";
-        });
-    } else {
-        // Rétablir les styles d'image par défaut //
-        pictures.forEach(picture => {
-            picture.style.width = "";
-            picture.style.height = "";
-        });
-    }
-}
-
-window.addEventListener("resize", setPictureHeight);
-setPictureHeight();
+                    // Fin de la section pour la modal et son comportement //
