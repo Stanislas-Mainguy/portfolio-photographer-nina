@@ -69,16 +69,20 @@ const modalContent = document.querySelector(".modal-content");
 const modalPicture = document.querySelector(".modal-picture");
 const allPicture = document.querySelectorAll(".gallery-picture");
 const selectorCloseModal = document.querySelector(".close-modal");
+const rightArrow = document.querySelector(".modal-arrow-right");
+const leftArrow = document.querySelector(".modal-arrow-left");
+let currentImageIndex = 0;
 
 // Récupération des éléments de gallery-picture et listener //
-allPicture.forEach((picture, index) => {
-    picture.addEventListener("click", () => openModal(index));
+allPicture.forEach((picture) => {
+    picture.addEventListener("click", () => openModal(picture));
 });
 
 // Ouverture de la modal //
-function openModal(imageIndex) {
-    const imgUrl = allPicture[imageIndex].getAttribute("src");
-    const imgAlt = allPicture[imageIndex].getAttribute("alt");
+function openModal(picture) {
+    dataIndex = parseInt(picture.getAttribute("data-index"));
+    const imgUrl = picture.getAttribute("src");
+    const imgAlt = picture.getAttribute("alt");
 
     const createModalPicture = document.createElement("img");
     createModalPicture.src = imgUrl;
@@ -90,16 +94,56 @@ function openModal(imageIndex) {
     modal.style.display = "flex";
     modalContent.style.display = "block";
     document.body.style.overflow = "hidden";
+
+    currentImageIndex = dataIndex; 
 }
+
+// Fonction pour afficher la prochaine image //
+function nextPictureModal() {
+    const nextIndexPicture = (currentImageIndex + 1) % allPicture.length;
+    const nextPicture = allPicture[nextIndexPicture];
+    const imgUrl = nextPicture.getAttribute("src");
+    const imgAlt = nextPicture.getAttribute("alt");
+
+    modalPicture.innerHTML = "";
+    const createModalPicture = document.createElement("img");
+    createModalPicture.src = imgUrl;
+    createModalPicture.alt = imgAlt;
+    modalPicture.appendChild(createModalPicture);
+
+    currentImageIndex = nextIndexPicture;
+}
+
+// Fonction pour afficher la précédente image //
+function previousPictureModal() {
+    const previousIndexPicture = (currentImageIndex - 1 + allPicture.length) % allPicture.length;
+    const previousPicture = allPicture[previousIndexPicture];
+    const imgUrl = previousPicture.getAttribute("src");
+    const imgAlt = previousPicture.getAttribute("alt");
+
+    modalPicture.innerHTML = "";
+    const createModalPicture = document.createElement("img");
+    createModalPicture.src = imgUrl;
+    createModalPicture.alt = imgAlt;
+    modalPicture.appendChild(createModalPicture);
+
+    currentImageIndex = previousIndexPicture;
+}
+
+leftArrow.addEventListener("click", () => previousPictureModal());
+rightArrow.addEventListener("click", () => nextPictureModal());
 
 // Fermeture de la modal //
 function closeModal() {
     modal.style.display = "none";
-    modalContent.style.display = "none"
+    modalContent.style.display = "none";
     document.body.style.overflow = "auto";
+
+    currentImageIndex = 0;
 }
 
 selectorCloseModal.addEventListener("click", closeModal);
+                            
 
 
                     // Fin de la section pour la modal et son comportement //
