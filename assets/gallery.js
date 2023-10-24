@@ -100,7 +100,13 @@ function openModal(picture) {
 
 // Fonction pour afficher la prochaine image //
 function nextPictureModal() {
-    const nextIndexPicture = (currentImageIndex + 1) % allPicture.length;
+    let nextIndexPicture = (currentImageIndex + 1) % allPicture.length;
+    
+    while(allPicture[nextIndexPicture].parentElement.style.display === "none"){
+     currentImageIndex++;
+     nextIndexPicture = (currentImageIndex + 1) % allPicture.length;
+    }
+    
     const nextPicture = allPicture[nextIndexPicture];
     const imgUrl = nextPicture.getAttribute("src");
     const imgAlt = nextPicture.getAttribute("alt");
@@ -116,7 +122,12 @@ function nextPictureModal() {
 
 // Fonction pour afficher la précédente image //
 function previousPictureModal() {
-    const previousIndexPicture = (currentImageIndex - 1 + allPicture.length) % allPicture.length;
+    let previousIndexPicture = (currentImageIndex - 1 + allPicture.length) % allPicture.length;
+
+    while(allPicture[previousIndexPicture].parentElement.style.display === "none"){
+        currentImageIndex--;
+        previousIndexPicture = (currentImageIndex - 1 + allPicture.length) % allPicture.length;
+    }
     const previousPicture = allPicture[previousIndexPicture];
     const imgUrl = previousPicture.getAttribute("src");
     const imgAlt = previousPicture.getAttribute("alt");
