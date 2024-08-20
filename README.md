@@ -1,5 +1,5 @@
 # OpenClassrooms_Projet9
 Mon portfolio de photographe
 
-GH Page --->[
+GH Page --->
 https://stanislas-mainguy.github.io/OpenClassrooms_Projet09/#about
